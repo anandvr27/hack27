@@ -1,0 +1,29 @@
+---
+en:
+  activerecord:
+    attributes:
+      user:
+        password_confirmation: ''
+        password: ''
+        email: ''
+        name: ''
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: Passwords do not match
+            password:
+              blank: Password cannot be blank
+              too_short: Password is too short. Minimum is %{count} characters
+            email:
+              already_confirmed: Email was already confirmed, please try signing in
+              confirmation_period_expired: Email needs to be confirmed within %{period},
+                please request a new one
+              expired: Email has expired, please request a new one
+              taken: Email is already taken
+              blank: Email field cant be blank
+              not_locked: Email was not locked
+              not_found: Email was not found
+            name:
+              blank: Name cannot be blank!

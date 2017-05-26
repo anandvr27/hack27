@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hack-A-Thon</title>
+    <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="trex.css">
+  <script src="trex.js"></script>
+</head>
+<body style="background-image: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png); background-size:cover">
+
+  <!-- NAvbar -->
+  <ul id="dropdown1" class="dropdown-content">
+        <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path,method: :delete %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Customize messages", messages_path %></li>
+  </ul>
+  <nav>
+    <div class="nav-wrapper grey darken-4">
+      <a href= "\" class="brand-logo"> &nbsp User Authentication</a>
+      <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <% if current_user.image != nil %>
+          <li><img src="<%= current_user.image %>", style="height: 63px; width: 60px" </li>
+          <% else %>
+          <li><img src="/user.png" style="height: 60px; width: 55px"></li>
+          <% end %>
+          <li><a class="dropdown-button" data-activates="dropdown1"><%= current_user.email %><i class="material-icons right">arrow_drop_down</i></a></li>
+        <% else %>
+          <li><%= link_to "Sign-up", new_user_registration_path %></li>
+          <li><%= link_to "Log-in", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Alert messages -->
+  <% if notice %>
+  <script>
+  $(function() {
+          Materialize.toast("<%= notice %>", 3000);
+        });
+  </script>
+  <%end%>
+
+  <% if alert %>
+  <script>
+  $(function() {
+          Materialize.toast("<%= alert %>", 3000);
+        });
+  </script>
+  <% end %>
+
+  <!-- Main body -->
+  <div style="padding-left: 50px">
+   <%= yield %>
+  </div>
+
+  <script>
+  $( document ).ready(function) {
+    $(".dropdown-button").dropdown();
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+</br></br></br>
+<div class="row">
+  <div class="col s12 m5">
+    <div class="card blue-text text-darken-2">
+      <div class="card-content black-text">
+
+        <h5>Listing Messages</h5>
+
+        <table class="striped">
+          <thead>
+            <tr>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @message.each do |message| %>
+              <tr>
+                <td><%= message.value %></td>
+                <td><%= link_to 'Edit', edit_message_path(message), class: "btn btn-primary" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+       </div>
+     </div>
+   </div>
+</div>      

@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col s12 m5">
+    <div class="card blue-text text-darken-2">
+      <div class="card-content black-text">
+		<h2>Resend confirmation instructions</h2>
+
+		<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+		  <%= devise_error_messages! %>
+
+		  <div class="input-field">
+		    <div class="input-field">
+				    <label for="email">Email</label>
+				    <%= f.email_field :email, autofocus: true, class:"validate", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+			</div>	    
+		  </div>
+
+		  <div class="actions">
+		    <%= f.submit "Resend confirmation instructions" %>
+		  </div>
+		<% end %>
+
+		<%= render "devise/shared/links" %>
+	</div>
+   </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+</br></br>
+</br>
+<div class="row">
+  <div class="col s12 m5">
+    <div class="card blue-text text-darken-2">
+      <div class="card-content black-text">
+		<% if user_signed_in? %>
+		  <h5> Welcome <%= current_user.name %> !</h5>
+		<% else %>
+		  <h5> You are not signed in </h5>
+		<% end %>  
+	  </div>
+	</div>
+   </div>	  	
+</div>  
+</br>
+<div class="row">
+  <div class="col s12 m5">
+    <div class="card blue-text text-darken-2">
+      <div class="card-content black-text">
+		<% if user_signed_in? %>
+		  <h5> You have logged in <%= current_user.sign_in_count %> times </h5>
+		<% else %>
+		  <h5> You are not signed in </h5>
+		<% end %>  
+	  </div>
+	</div>
+   </div>	  	
+</div>   
+</br>
+<div class="row">
+  <div class="col s12 m5">
+    <div class="card blue-text text-darken-2">
+      <div class="card-content black-text">
+		<% if user_signed_in? %>
+		  <h5> Your last sign in : <%= current_user.last_sign_in_at %> </h5>
+		<% else %>
+		  <h5> You are not signed in </h5>
+		<% end %>  
+	  </div>
+	</div>
+   </div>	  	
+</div>  
+</br>
+<div class="row">
+  <div class="col s12 m5">
+    <div class="card blue-text text-darken-2">
+      <div class="card-content black-text">
+		<% if user_signed_in? %>
+		  <h5> You are a member since : <%= current_user.created_at %> </h5>
+		<% else %>
+		  <h5> You are not signed in </h5>
+		<% end %>  
+	  </div>
+	</div>
+   </div>	  	
+</div>  

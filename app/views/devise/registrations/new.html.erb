@@ -1,0 +1,44 @@
+</br></br>
+<div class="row">
+  <div class="col s12 m5">
+    <div class="card blue-text text-darken-2">
+      <div class="card-content black-text">
+        <h5 style="color:grey;font-size: 20px;"">Sign up</h5>
+        </br>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="input-field">
+            <%= f.text_field :name, class: "validate", autofocus: true %>
+            <label for="name" class="active">Name</label>
+          </div>
+
+          <div class="input-field">
+            <%= f.email_field :email, class: "validate"%>
+            <label for="email", class="active">Email</label>
+          </div>
+
+          <div class="input-field">
+            <%= f.password_field :password, autocomplete: "off", class: "validate" %>
+            <label for="password", class="active">Password</label>
+          </div>
+          <% if @minimum_password_length %>
+          <em style="color:grey">(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+
+          <div class="input-field">
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "validate" %>
+            <label for="password_confirmation", class="active">Password Confirmation</label>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up" ,class: "btn btn-primary"%>
+          </div>
+        </br>  
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>   
+    </div>   
+  </div> 
+</div>   
